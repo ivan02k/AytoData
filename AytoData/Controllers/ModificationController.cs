@@ -19,6 +19,22 @@ namespace AutoData.Controllers
         public ActionResult Index()
         {
             var listofData = _context.Modifications.ToList();
+            foreach (var item in listofData)
+            {
+                item.Generation = _context.Generations.FirstOrDefault(v => v.Id == item.GenerationId);
+            }
+            foreach (var item in listofData)
+            {
+                item.BodyType = _context.BodyTypes.FirstOrDefault(v => v.Id == item.BodyTypeId);
+            }
+            foreach (var item in listofData)
+            {
+                item.EngineModel = _context.EngineModels.FirstOrDefault(v => v.Id == item.EngineModelId);
+            }
+            foreach (var item in listofData)
+            {
+                item.GearBoxType = _context.GearsBoxTypes.FirstOrDefault(v => v.Id == item.GearBoxTypeId);
+            }
             return View(listofData);
         }
 

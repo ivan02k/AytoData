@@ -1,0 +1,100 @@
+﻿@model Data.Entities.Modification
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4 class="text-danger">General information</h4>
+    <hr />
+    <div class="container mt-2">          
+  <table class="table table-secondary">
+    <tbody>
+      <tr>
+        <td>Brand</td>
+        <td>@Html.DisplayFor(model => model.Generation.BrandModel.Brand.Name)</td>
+      </tr>
+      <tr>
+        <td>Model</td>
+        <td>@Html.DisplayFor(model => model.Generation.BrandModel.Name)</td>
+      </tr>
+      <tr>
+        <td>Generation</td>
+        <td>@Html.DisplayFor(model => model.Generation.Name)</td>
+      </tr>
+      <tr>
+        <td>Year production</td>
+        <td>@Html.DisplayFor(model => model.Generation.YearFactury)</td>
+      </tr>
+      <tr>
+        <td>Engine</td>
+        <td>@Html.DisplayFor(model => model.EngineModel.Name)</td>
+      </tr>
+      <tr>
+        <td>Body type</td>
+        <td>@Html.DisplayFor(model => model.BodyType.Name)</td>
+      </tr>
+      <tr>
+        <td>Doors</td>
+        <td>@Html.DisplayFor(model => model.BodyType.Doors)</td>
+      </tr>
+      <tr>
+        <td>Seats</td>
+        <td>@Html.DisplayFor(model => model.BodyType.Seats)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<br/>
+<div>
+    <h4 class="text-danger">Performance specs</h4>
+    <hr />
+    <div class="container mt-2">          
+  <table class="table table-secondary">
+    <tbody>
+        <tr>
+        <td>Fuel Type</td>
+        <td>@Html.DisplayFor(model => model.EngineModel.FuelType)</td>
+      </tr>
+      <tr>
+        <td>Fuel consumption (economy) - combined</td>
+        <td>@Html.DisplayFor(model => model.FuelConsumption)</td>
+      </tr>
+      <tr>
+        <td>Acceleration 0 - 100 km/h</td>
+        <td>@Html.DisplayFor(model => model.Acceleration)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<br/>
+<div>
+    <h4 class="text-danger">Engine specs</h4>
+    <hr />
+    <div class="container mt-2">          
+  <table class="table table-secondary">
+    <tbody>
+      <tr>
+        <td>Power</td>
+        <td>@Html.DisplayFor(model => model.EngineModel.Power)</td>
+      </tr>
+      <tr>
+        <td>Number of cylinders</td>
+        <td>@Html.DisplayFor(model => model.EngineModel.NumberCylinders)</td>
+      </tr>
+      <tr>
+        <td>Fuel Type</td>
+        <td>@Html.DisplayFor(model => model.EngineModel.FuelType)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<br/>
+<div>
+    <a class="btn btn-success" asp-action="Index">Back to List</a>
+</div>

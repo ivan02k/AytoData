@@ -259,7 +259,9 @@ namespace Data.Migrations
                     GenerationId = table.Column<int>(type: "int", nullable: true),
                     BodyTypeId = table.Column<int>(type: "int", nullable: true),
                     EngineModelId = table.Column<int>(type: "int", nullable: true),
-                    GearBoxTypeId = table.Column<int>(type: "int", nullable: true)
+                    GearBoxTypeId = table.Column<int>(type: "int", nullable: true),
+                    Acceleration = table.Column<double>(type: "float", nullable: false),
+                    FuelConsumption = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -286,27 +288,6 @@ namespace Data.Migrations
                         name: "FK_Modifications_Generations_GenerationId",
                         column: x => x.GenerationId,
                         principalTable: "Generations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CarDetails",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ModificationId = table.Column<int>(type: "int", nullable: true),
-                    Acceleration = table.Column<double>(type: "float", nullable: false),
-                    FuelConsumption = table.Column<double>(type: "float", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CarDetails", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_CarDetails_Modifications_ModificationId",
-                        column: x => x.ModificationId,
-                        principalTable: "Modifications",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -356,13 +337,6 @@ namespace Data.Migrations
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarDetails_ModificationId",
-                table: "CarDetails",
-                column: "ModificationId",
-                unique: true,
-                filter: "[ModificationId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Generations_BrandModelId",
                 table: "Generations",
                 column: "BrandModelId");
@@ -406,16 +380,13 @@ namespace Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CarDetails");
+                name: "Modifications");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Modifications");
 
             migrationBuilder.DropTable(
                 name: "BodyTypes");

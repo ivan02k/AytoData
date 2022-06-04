@@ -11,18 +11,10 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AytoData</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Brand" asp-action="Index">Brands</a>
@@ -36,9 +28,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Modification" asp-action="Index">Modifications</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CarDetail" asp-action="Index">Deatails</a>
-                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -50,20 +39,12 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top">
+    <br/>
+    <footer class="fixed-bottom text-center bg-dark navbar-dark">
         <div>
-            <ul class="text-align: center">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="BodyType" asp-action="Index">BodyTypes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="EngineModel" asp-action="Index">Engine Models</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="GearBoxType" asp-action="Index">GearBoxes</a>
-                        </li>
-                    </ul>
+               <p> <a class="text-primary" asp-area="" asp-controller="BodyType" asp-action="Index">BodyTypes</a><br />
+                <a class="text-primary" asp-area="" asp-controller="EngineModel" asp-action="Index">Engine Models</a><br/>
+                <a class="text-primary" asp-area="" asp-controller="GearBoxType" asp-action="Index">GearBoxes</a></p>                 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

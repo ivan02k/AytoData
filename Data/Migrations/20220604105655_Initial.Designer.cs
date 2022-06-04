@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AutoDataContext))]
-    [Migration("20220602124931_Initial")]
+    [Migration("20220604105655_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,31 +81,6 @@ namespace Data.Migrations
                     b.HasIndex("BrandId");
 
                     b.ToTable("BrandModels");
-                });
-
-            modelBuilder.Entity("Data.Entities.CarDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("Acceleration")
-                        .HasColumnType("float");
-
-                    b.Property<double>("FuelConsumption")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("ModificationId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ModificationId")
-                        .IsUnique()
-                        .HasFilter("[ModificationId] IS NOT NULL");
-
-                    b.ToTable("CarDetails");
                 });
 
             modelBuilder.Entity("Data.Entities.EngineModel", b =>
@@ -185,11 +160,17 @@ namespace Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<double>("Acceleration")
+                        .HasColumnType("float");
+
                     b.Property<int?>("BodyTypeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("EngineModelId")
                         .HasColumnType("int");
+
+                    b.Property<double>("FuelConsumption")
+                        .HasColumnType("float");
 
                     b.Property<int?>("GearBoxTypeId")
                         .HasColumnType("int");
@@ -419,15 +400,6 @@ namespace Data.Migrations
                     b.Navigation("Brand");
                 });
 
-            modelBuilder.Entity("Data.Entities.CarDetail", b =>
-                {
-                    b.HasOne("Data.Entities.Modification", "Modification")
-                        .WithOne("CarDetail")
-                        .HasForeignKey("Data.Entities.CarDetail", "ModificationId");
-
-                    b.Navigation("Modification");
-                });
-
             modelBuilder.Entity("Data.Entities.Generation", b =>
                 {
                     b.HasOne("Data.Entities.BrandModel", "BrandModel")
@@ -543,11 +515,6 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Entities.Generation", b =>
                 {
                     b.Navigation("Modifications");
-                });
-
-            modelBuilder.Entity("Data.Entities.Modification", b =>
-                {
-                    b.Navigation("CarDetail");
                 });
 #pragma warning restore 612, 618
         }

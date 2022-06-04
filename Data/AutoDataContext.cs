@@ -21,7 +21,6 @@ namespace Data
         public DbSet<BrandModel> BrandModels { get; set; }
         public DbSet<Generation> Generations { get; set; }
         public DbSet<Modification> Modifications { get; set; }
-        public DbSet<CarDetail> CarDetails { get; set; }
         public DbSet<EngineModel> EngineModels { get; set; }
         public DbSet<GearBoxType> GearsBoxTypes { get; set; }
         public DbSet<BodyType> BodyTypes { get; set; }

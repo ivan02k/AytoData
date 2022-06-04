@@ -16,6 +16,7 @@ namespace Data.Entities
         public EngineModel EngineModel { get; set; }
         public int? GearBoxTypeId { get; set; }
         public GearBoxType GearBoxType { get; set; }
-        public CarDetail CarDetail { get; set; }
+        public double Acceleration { get; set; }
+        public double FuelConsumption { get; set; }
     }
 }

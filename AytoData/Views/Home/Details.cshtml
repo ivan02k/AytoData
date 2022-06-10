@@ -7,18 +7,18 @@
 <h1>Details</h1>
 
 <div>
-    <h4 class="text-danger">General information</h4>
+    <h4 class="text-success">General information</h4>
     <hr />
     <div class="container mt-2">          
   <table class="table table-secondary">
     <tbody>
       <tr>
         <td>Brand</td>
-        <td>@Html.DisplayFor(model => model.Generation.BrandModel.Brand.Name)</td>
+        <td>@ViewBag.Brand</td>
       </tr>
       <tr>
         <td>Model</td>
-        <td>@Html.DisplayFor(model => model.Generation.BrandModel.Name)</td>
+        <td>@ViewBag.BrandModel</td>
       </tr>
       <tr>
         <td>Generation</td>
@@ -50,7 +50,7 @@
 </div>
 <br/>
 <div>
-    <h4 class="text-danger">Performance specs</h4>
+    <h4 class="text-success">Performance specs</h4>
     <hr />
     <div class="container mt-2">          
   <table class="table table-secondary">
@@ -73,7 +73,7 @@
 </div>
 <br/>
 <div>
-    <h4 class="text-danger">Engine specs</h4>
+    <h4 class="text-success">Engine specs</h4>
     <hr />
     <div class="container mt-2">          
   <table class="table table-secondary">
@@ -96,5 +96,6 @@
 </div>
 <br/>
 <div>
-    <a class="btn btn-success" asp-action="Index">Back to List</a>
+    <a class="btn btn-danger" href="##" onClick="history.go(-1); return false;">Go back</a>
+    <a class="btn btn-danger" asp-action="Index">Back to Brands List</a>
 </div>

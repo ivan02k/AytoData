@@ -1,20 +1,14 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-@model IEnumerable<Data.Entities.Modification>
+﻿@model IEnumerable<Data.Entities.Modification>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Modifications</h1>
-@if (SignInManager.IsSignedIn(User))
-{
-    <p>
-        <a class="btn btn-primary" asp-action="Create">Add Modification</a>
-    </p>
-}
 
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add Modification</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -34,27 +28,24 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Generation.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BodyType.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EngineModel.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GearBoxType.Name)
-                </td>
-                <td>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>               
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a> 
-                    }
-
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Generation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BodyType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineModel.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GearBoxType.Name)
+            </td>
+            <td>
+                <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
